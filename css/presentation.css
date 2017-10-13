@@ -1,0 +1,38 @@
+.split {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+.reveal section .cut-js {
+  display: inline-block;
+  width: 324px;
+  overflow: hidden;
+}
+
+.reveal section .cut-js img {
+  min-width: 1093px;
+}
+
+.reveal section .cut-style {
+  display: inline-block;
+  width: 324px;
+  overflow: hidden;
+}
+
+.reveal section .cut-style img {
+  min-width: 1093px;
+  margin-left: -200px!important;
+}
+
+.reveal section .cut-layout {
+  display: inline-block;
+  width: 324px;
+  overflow: hidden;
+}
+
+.reveal section .cut-layout img {
+  min-width: 1093px;
+  margin-left: -395px!important;
+}

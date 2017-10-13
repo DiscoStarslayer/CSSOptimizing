@@ -8,7 +8,8 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
-
+		<link rel="stylesheet" href="css/presentation.css">
+		
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -24,8 +25,96 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Optimizing CSS Animations</h2>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Performance is a feature
+						- 60 FPS target, even on lower end devices
+						- Animations make UI 'fun' and 'interactive'
+						- Creates a polished well built 'app feel'
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Performance on web is hard
+						- Javascript is a interpreted single threaded language
+						- No UI thread, have a long process? Then the user won't even be able to scroll.
+						- Web is everywhere! App needs to run on your toaster!
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						# There is hope
+					</textarea>
+				</section>
+				<section>
+					<div class="split">
+						<div>
+							<h3>Browser Rendering Pipeline</h3>
+							<ul>
+								<li>Any time you change what is displayed in the browser, it runs this rendering pipeline</li>
+								<li>Computationally Heavy</li>
+								<li>Layouting is not deterministic, needs to be run proceduraly</li>
+							</ul>
+						</div>
+						<div>
+							<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="split">
+						<div>
+							<h3>Javascript Pipeline</h3>
+							<ul>
+								<li>Add / Remove / Modify DOM elements</li>
+								<li>Not just Javascript</li>
+								<li>Modifying CSS Properties</li>
+								<li>CSS Transitions</li>
+							</ul>
+						</div>
+						<div>
+							<div class="cut-js">
+									<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" />									
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="split">
+						<div>
+							<h3>Styling Pipeline</h3>
+							<ul>
+								<li>Match CSS Rules to selectors</li>
+								<li>Computes all styles for each element</li>
+								<li>Complicated CSS and wide reaching styles like `*` can slow this down</li>
+							</ul>
+						</div>
+						<div>
+							<div class="cut-style">
+									<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" />									
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+						<div class="split">
+							<div>
+								<h3>Layout Pipeline</h3>
+								<ul>
+									<li>Use computed rules to determine size of elements and where to place them</li>
+									<li>Has to be rendered proceduraly, nature of CSS means parent and children elements can effect styles of the element being rendered</li>
+								</ul>
+							</div>
+							<div>
+								<div class="cut-layout">
+										<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" />									
+								</div>
+							</div>
+						</div>
+					</section>
 			</div>
 		</div>
 
